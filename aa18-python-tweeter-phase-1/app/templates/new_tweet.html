@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{% block main %}
+<div class="form_container">
+    <h1>Create a New Tweet!</h1>
+    {% if errors != None %}
+        {% for error, key in errors.items() %}
+            <p style="color: red">{{ error, key }}</p>
+        {% endfor %}
+    {% endif %}
+    <form style="border: 2px solid white;
+    border-radius: 10px;
+    "
+    method="post"
+    >
+        {{ form.csrf_token }}
+        <p>{{form.author.label}} {{form.author}}</p>
+        <p>{{form.tweet.label}} {{form.tweet}}</p>
+        <p>{{form.submit}}</p>
+       
+    </form>
+</div>
+{% endblock %}
